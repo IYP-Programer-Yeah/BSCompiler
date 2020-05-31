@@ -25,7 +25,9 @@ jobs:
 
     - name: Create Build Environment
       shell: bash
-      run: cmake -E make_directory $CMAKE_BUILD_PATH
+      run: |
+        cmake -E make_directory $CMAKE_BUILD_PATH
+        ls $CMAKE_BUILD_PATH
 
     - name: Configure CMake
       shell: bash
