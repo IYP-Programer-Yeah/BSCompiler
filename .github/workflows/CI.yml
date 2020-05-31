@@ -27,7 +27,7 @@ jobs:
       shell: bash
       run: |
         cmake -E make_directory $CMAKE_BUILD_PATH
-        ls $CMAKE_BUILD_PATH
+        ls $CMAKE_ROOT
 
     - name: Configure CMake
       shell: bash
