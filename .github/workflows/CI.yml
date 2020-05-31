@@ -21,22 +21,19 @@ jobs:
 
     - uses: actions/cache@v2
       with:
-        path: ${{runner.workspace}}/Projects/CMake/build/llvm
-        key: ${{runner.os}}-LLVMBuild
-    
-    - name: Pull submodules
-      run: git submodule update --init
+        path: ${{ runner.workspace }}/Projects/CMake/build/llvm
+        key: ${{ runner.os }}-LLVMBuild
 
     - name: Create Build Environment
-      run: cmake -E make_directory ${{runner.workspace}}/Projects/CMake/build
+      run: cmake -E make_directory ${{ runner.workspace }}/Projects/CMake/build
 
     - name: Configure CMake
       shell: bash
-      working-directory: ${{runner.workspace}}/Projects/CMake/build
+      working-directory: ${{ runner.workspace }}/Projects/CMake/build
       run: cmake $GITHUB_WORKSPACE/Projects/CMake -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
-      working-directory: ${{runner.workspace}}/Projects/CMake/build
+      working-directory: ${{ runner.workspace }}/Projects/CMake/build
       shell: bash
       run: cmake --build . --config $BUILD_TYPE
 
