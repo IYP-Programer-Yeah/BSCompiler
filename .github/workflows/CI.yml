@@ -22,7 +22,7 @@ jobs:
     - uses: actions/cache@v2
       with:
         path: ${{ runner.workspace }}/Projects/CMake/build/llvm
-        key: ${{ runner.os }}-LLVMBuild
+        key: ${{ runner.os }}-${{ hashFiles('Projects/CMake/llvm/**/*.*') }}-${{ hashFiles('Dependencies/llvm-project/llvm/**/*.*') }}-LLVMBuild
 
     - name: Create Build Environment
       run: cmake -E make_directory ${{ runner.workspace }}/Projects/CMake/build
